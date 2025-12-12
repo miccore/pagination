@@ -17,21 +17,21 @@
     <Copyright>Copyright © 2025 Manher</Copyright>
     <Description>Server-side pagination library for .NET with Entity Framework Core support. Features include async/sync pagination, dynamic sorting, and IAsyncEnumerable streaming.</Description>
     <PackageTags>pagination;dotnet;efcore;sorting;async-streams;net8;net10;server-side-pagination</PackageTags>
-    <RepositoryUrl>https://github.com/MbakopManuel/miccore.pagination.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/miccore/pagination.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageProjectUrl>https://github.com/MbakopManuel/miccore.pagination</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/miccore/pagination</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>
-v2.0.0 - Breaking Changes:
-- Multi-targeting .NET 8.0 and .NET 10.0 (dropped .NET 6.0 support)
-- Namespace unified to Miccore.Pagination
-- PaginationQuery properties now PascalCase (paginate→Paginate, page→Page, limit→Limit)
-- RouterLink class renamed to RouteLink
-- Added sorting support (OrderBy, OrderDirection)
-- Added synchronous Paginate() method
-- Added IAsyncEnumerable streaming methods (AsStreamAsync, PaginateAsStreamAsync)
-- Full nullable reference types support
+      v2.0.0 - Breaking Changes:
+      - Multi-targeting .NET 8.0 and .NET 10.0 (dropped .NET 6.0 support)
+      - Namespace unified to Miccore.Pagination
+      - PaginationQuery properties now PascalCase (paginate→Paginate, page→Page, limit→Limit)
+      - RouterLink class renamed to RouteLink
+      - Added sorting support (OrderBy, OrderDirection)
+      - Added synchronous Paginate() method
+      - Added IAsyncEnumerable streaming methods (AsStreamAsync, PaginateAsStreamAsync)
+      - Full nullable reference types support
     </PackageReleaseNotes>
     
     <!-- Build output -->

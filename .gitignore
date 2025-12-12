@@ -3,17 +3,23 @@
 project.lock.json
 .DS_Store
 *.pyc
+
+# NuGet packages
 nupkg/
+*.nupkg
+*.snupkg
+.nuget/
+packages/
 
 # Visual Studio Code
-.vscode
+.vscode/
 
 # Rider
-.idea
+.idea/
 
 # User-specific files
 *.suo
-# *.user
+*.user
 *.userosscache
 *.sln.docstates
 
@@ -34,7 +40,26 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 
-# Visual Studio 2015
+# Visual Studio
 .vs/
-.fake
+*.fake
 .ionide
+
+# Test results
+TestResults/
+*.trx
+coverage/
+*.coverage
+*.coveragexml
+
+# JetBrains Rider
+*.sln.iml
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db

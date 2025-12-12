@@ -1,22 +1,58 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>Miccore.Net.Pagination</RootNamespace>
+    <!-- Multi-targeting .NET 8 et .NET 10 -->
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    
+    <!-- Namespace et identité -->
+    <RootNamespace>Miccore.Pagination</RootNamespace>
     <PackageId>Miccore.Net.Pagination</PackageId>
-    <Version>1.0.0</Version>  
-		<PackageOutputPath>./miccore-nupkg</PackageOutputPath>
-		<Authors>Manher</Authors>
-		<Description>
-       Library for pagination of list in dotnet core project
-    </Description>
-		<PackageTags>miccore.net.pagination, dotnet core 6.0, .net core, pagination</PackageTags>
-		<RepositoryUrl>https://github.com/MbakopManuel/miccore.pagination.git</RepositoryUrl>
+    <Version>2.0.0</Version>
+    
+    <!-- Métadonnées NuGet -->
+    <Authors>Manher</Authors>
+    <Copyright>Copyright © 2025 Manher</Copyright>
+    <Description>Server-side pagination library for .NET with Entity Framework Core support. Features include async/sync pagination, dynamic sorting, and IAsyncEnumerable streaming.</Description>
+    <PackageTags>pagination;dotnet;efcore;sorting;async-streams;net8;net10;server-side-pagination</PackageTags>
+    <RepositoryUrl>https://github.com/MbakopManuel/miccore.pagination.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/MbakopManuel/miccore.pagination</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>
+v2.0.0 - Breaking Changes:
+- Multi-targeting .NET 8.0 and .NET 10.0 (dropped .NET 6.0 support)
+- Namespace unified to Miccore.Pagination
+- PaginationQuery properties now PascalCase (paginate→Paginate, page→Page, limit→Limit)
+- RouterLink class renamed to RouteLink
+- Added sorting support (OrderBy, OrderDirection)
+- Added synchronous Paginate() method
+- Added IAsyncEnumerable streaming methods (AsStreamAsync, PaginateAsStreamAsync)
+- Full nullable reference types support
+    </PackageReleaseNotes>
+    
+    <!-- Build output -->
+    <PackageOutputPath>./miccore-nupkg</PackageOutputPath>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
+  <!-- Include README in package -->
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.2" />
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <!-- Dépendances EF Core conditionnelles par TFM -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0" />
   </ItemGroup>
 
 </Project>
